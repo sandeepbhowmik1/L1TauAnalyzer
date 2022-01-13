@@ -28,7 +28,10 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('/store/mc/Run3Winter20DRPremixMiniAOD/Nu_E10-pythia8-gun/GEN-SIM-RAW/SNB_110X_mcRun3_2021_realistic_v6-v1/10000/51FBC4DC-D5C7-824F-9AFA-3025F04F96FA.root'),
+    fileNames = cms.untracked.vstring(
+        #'/store/mc/Run3Winter20DRPremixMiniAOD/Nu_E10-pythia8-gun/GEN-SIM-RAW/SNB_110X_mcRun3_2021_realistic_v6-v1/10000/51FBC4DC-D5C7-824F-9AFA-3025F04F96FA.root'
+        '/store/mc/Run3Winter21DRMiniAOD/SingleNeutrino_Pt-2To20-gun/GEN-SIM-DIGI-RAW/FlatPU30to80FEVT_SNB_112X_mcRun3_2021_realistic_v16-v2/120000/00124599-f8a3-494c-b75a-5c267692d912.root'
+    ),
     secondaryFileNames = cms.untracked.vstring()
 )
 
@@ -129,7 +132,7 @@ process.schedule = cms.Schedule(process.p) # do my sequence pls
 import FWCore.ParameterSet.VarParsing as VarParsing
 options = VarParsing.VarParsing ('analysis')
 # output file
-options.outputFile = 'RoorTree_reEmulL1_MC_RAW_RelValZTT_20210727.root'
+options.outputFile = 'RoorTree_reEmulL1_MC_RAW_SingleNeutrino_20210727.root'
 
 # Adding ntuplizer
 process.TFileService=cms.Service('TFileService',fileName=cms.string(options.outputFile))
